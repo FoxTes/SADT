@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Modules\SADT.Modules.StartWindow\SADT.Modules.StartWindow.csproj" />
     <ProjectReference Include="..\SADT.Core\SADT.Core.csproj" />
   </ItemGroup>
 

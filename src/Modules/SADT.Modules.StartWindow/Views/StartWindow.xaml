@@ -1,0 +1,24 @@
+﻿<Window
+    x:Class="SADT.Modules.StartWindow.Views.StartWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:ui="http://schemas.modernwpf.com/2019"
+    xmlns:views="clr-namespace:SADT.Modules.StartWindow.Views"
+    Width="900"
+    Height="635"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    ui:ThemeManager.RequestedTheme="Dark"
+    ui:TitleBar.ExtendViewIntoTitleBar="True"
+    ui:WindowHelper.UseModernWindowStyle="True"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="ToolWindow"
+    mc:Ignorable="d">
+
+    <Grid Margin="48,42,48,48">
+        <views:BeginWork />
+    </Grid>
+</Window>

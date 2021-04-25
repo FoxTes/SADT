@@ -1,0 +1,87 @@
+﻿<UserControl
+    x:Class="SADT.Modules.StartWindow.Views.BeginWork"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:ui="http://schemas.modernwpf.com/2019"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="24" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            FontSize="34"
+            Style="{DynamicResource SubheaderTextBlockStyle}"
+            Text="SADT" />
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="32" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <ui:SimpleStackPanel Spacing="16">
+                    <TextBlock Style="{DynamicResource SubtitleTextBlockStyle}" Text="Открыть последние" />
+                    <ui:AutoSuggestBox
+                        Width="300"
+                        HorizontalAlignment="Left"
+                        PlaceholderText="Поиск в недавнем (ALT + 'B')"
+                        QueryIcon="Find" />
+                </ui:SimpleStackPanel>
+
+                <ListView
+                    Grid.Row="1"
+                    Margin="0,16,0,40"
+                    ui:ScrollViewerHelper.AutoHideScrollBars="True"
+                    SelectionMode="Single">
+                    <TextBlock>Один</TextBlock>
+                    <TextBlock>Два</TextBlock>
+                    <TextBlock>Три</TextBlock>
+                    <TextBlock>Четыре</TextBlock>
+                    <TextBlock>Пять</TextBlock>
+                    <TextBlock>Четыре</TextBlock>
+                    <TextBlock>Пять</TextBlock>
+                    <TextBlock>Четыре</TextBlock>
+                    <TextBlock>Пять</TextBlock>
+                    <TextBlock>Пять</TextBlock>
+                    <TextBlock>Пять</TextBlock>
+                </ListView>
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="16" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Style="{DynamicResource SubtitleTextBlockStyle}" Text="Создать проект" />
+                <ScrollViewer Grid.Row="2" ui:ScrollViewerHelper.AutoHideScrollBars="True">
+                    <ui:SimpleStackPanel Spacing="4">
+                        <Button Height="95" Background="Red" />
+                        <Button Height="95" Background="Orange" />
+                        <Button Height="95" Background="Yellow" />
+                    </ui:SimpleStackPanel>
+                </ScrollViewer>
+                <ui:HyperlinkButton
+                    Grid.Row="3"
+                    Margin="4"
+                    HorizontalAlignment="Center"
+                    Content="Продолжить без кода" />
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
