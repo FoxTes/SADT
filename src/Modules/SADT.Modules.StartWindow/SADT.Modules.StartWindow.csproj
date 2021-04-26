@@ -8,4 +8,7 @@
     <PackageReference Include="ModernWpfUI" Version="0.9.4" />
     <PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SADT.Core\SADT.Core.csproj" />
+  </ItemGroup>
 </Project>

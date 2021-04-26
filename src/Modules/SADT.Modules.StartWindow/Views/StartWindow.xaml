@@ -7,7 +7,7 @@
     xmlns:prism="http://prismlibrary.com/"
     xmlns:ui="http://schemas.modernwpf.com/2019"
     xmlns:views="clr-namespace:SADT.Modules.StartWindow.Views"
-    Width="900"
+    Width="960"
     Height="635"
     prism:ViewModelLocator.AutoWireViewModel="True"
     ui:ThemeManager.RequestedTheme="Dark"
