@@ -7,18 +7,19 @@
     xmlns:prism="http://prismlibrary.com/"
     xmlns:ui="http://schemas.modernwpf.com/2019"
     xmlns:views="clr-namespace:SADT.Modules.StartWindow.Views"
-    Width="960"
-    Height="635"
+    Width="942"
+    Height="632"
     prism:ViewModelLocator.AutoWireViewModel="True"
     ui:ThemeManager.RequestedTheme="Dark"
     ui:TitleBar.ExtendViewIntoTitleBar="True"
     ui:WindowHelper.UseModernWindowStyle="True"
+    Background="#FF252526"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     WindowStyle="ToolWindow"
     mc:Ignorable="d">
 
-    <Grid Margin="48,42,48,48">
+    <Grid Margin="0,32,0,0">
         <views:BeginWork />
     </Grid>
 </Window>

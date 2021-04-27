@@ -7,6 +7,8 @@ namespace SADT.Modules.StartWindow.Models
     {
         public TypeTransformer TypeTransformer { get; set; }
 
+        public string NameProject { get; set; }
+
         public string PathToProject { get; set; }
 
         public DateTime DateCreate { get; set; }

@@ -1,0 +1,36 @@
+﻿using SADT.Core.Enums;
+using SADT.Modules.StartWindow.Models;
+using System.Windows;
+using System.Windows.Controls;
+
+namespace SADT.Modules.StartWindow.Selectors
+{
+    public class TypeProjectSelector : DataTemplateSelector
+    {
+        public DataTemplate TypeTmnTemplate { get; set; }
+
+        public DataTemplate TypeTmgTemplate { get; set; }
+
+        public DataTemplate TypeTmpngTemplate { get; set; }
+
+
+        public override DataTemplate SelectTemplate(object item, DependencyObject container)
+        {
+            var selectedTemplate = TypeTmnTemplate;
+
+            if (!(item is SavedProjects setting))
+                return selectedTemplate;
+
+            selectedTemplate = setting.TypeTransformer switch
+            {
+                TypeTransformer.TM => TypeTmnTemplate,
+                TypeTransformer.TMN => TypeTmnTemplate,
+                TypeTransformer.TMG => TypeTmgTemplate,
+                TypeTransformer.TMPNG => TypeTmpngTemplate,
+                _ => TypeTmpngTemplate,
+            };
+
+            return selectedTemplate;
+        }
+    }
+}
