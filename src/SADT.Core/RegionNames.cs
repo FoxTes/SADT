@@ -5,6 +5,8 @@
     /// </summary>
     public static class RegionNames
     {
+        public const string StartContent = "StartContent";
+
         public const string MainContent = "MainContent";
     }
 }

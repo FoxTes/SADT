@@ -1,5 +1,8 @@
-﻿using Prism.Mvvm;
+﻿using Prism.Commands;
+using Prism.Regions;
+using SADT.Core;
 using SADT.Core.Enums;
+using SADT.Core.Mvvm;
 using SADT.Modules.StartWindow.Models;
 using System;
 using System.Collections.ObjectModel;
@@ -7,23 +10,23 @@ using System.Linq;
 
 namespace SADT.Modules.StartWindow.ViewModels
 {
-    public class BeginWorkViewModel : BindableBase
+    public class BeginWorkViewModel : RegionViewModelBase
     {
+        private readonly IRegionManager _regionManager;
         private ObservableCollection<SavedProjects> _saveProjects = new ObservableCollection<SavedProjects>();
+
         public ObservableCollection<SavedProjects> SaveProjects
         {
             get { return _saveProjects; }
             set { SetProperty(ref _saveProjects, value); }
         }
 
-        public BeginWorkViewModel()
+        public DelegateCommand CreateProjectCommand { get; private set; }
+
+        public BeginWorkViewModel(IRegionManager regionManager)
         {
-            SaveProjects.Add(new SavedProjects
-            {
-                TypeTransformer = TypeTransformer.TMPNG,
-                DateCreate = DateTime.Now.AddDays(1),
-                PathToProject = @$"C:\Users\GLevchenko\Downloads\Telegram Desktop\Project{1}"
-            });
+            _regionManager = regionManager;
+
             var savedProjects = Enumerable.Range(0, 4)
                 .Select(x => new SavedProjects
                 {
@@ -33,19 +36,13 @@ namespace SADT.Modules.StartWindow.ViewModels
                 })
                 .ToList();
             SaveProjects.AddRange(savedProjects);
-            SaveProjects.Add(new SavedProjects
-            {
-                TypeTransformer = TypeTransformer.TMPNG,
-                DateCreate = DateTime.Now.AddDays(1),
-                PathToProject = @$"C:\Users\GLevchenko\Downloads\Telegram Desktop\Project{1}"
-            });
-            SaveProjects.Add(new SavedProjects
-            {
-                TypeTransformer = TypeTransformer.TMN,
-                DateCreate = DateTime.Now.AddDays(1),
-                PathToProject = @$"C:\Users\GLevchenko\Downloads\Telegram Desktop\Project{1}"
-            });
-            SaveProjects.AddRange(savedProjects);
+
+            CreateProjectCommand = new DelegateCommand(CreateProjectSubmit);
+        }
+
+        private void CreateProjectSubmit()
+        {
+
         }
     }
 }

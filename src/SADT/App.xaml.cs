@@ -1,5 +1,6 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
+using SADT.DataAccess.Sqlite;
 using SADT.Modules.StartWindow.Views;
 using SADT.Views;
 using System;
@@ -29,6 +30,8 @@ namespace SADT
 
         protected override void OnInitialized()
         {
+            CreateDatabase();
+
             var inputArg = GetInputCommandArgs();
             if (inputArg == null)
             {
@@ -42,6 +45,12 @@ namespace SADT
         {
             var args = Environment.GetCommandLineArgs();
             return args.Length > 1 ? args[1] : null;
+        }
+
+        private void CreateDatabase()
+        {
+            using var context = new Context();
+            context.Database.EnsureCreated();
         }
     }
 }

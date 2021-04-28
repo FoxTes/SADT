@@ -1,9 +1,95 @@
-﻿<UserControl x:Class="SADT.Modules.StartWindow.Views.ProjectSetup"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:prism="http://prismlibrary.com/"             
-             prism:ViewModelLocator.AutoWireViewModel="True">
-    <Grid>
-            
+﻿<UserControl
+    x:Class="SADT.Modules.StartWindow.Views.ProjectSetup"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:ui="http://schemas.modernwpf.com/2019"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+
+    <UserControl.Resources>
+        <Style BasedOn="{StaticResource DefaultButtonStyle}" TargetType="Button">
+            <Setter Property="Background" Value="#333337" />
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Margin="48,8,48,48">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="24" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock FontSize="34" Text="Настроить новый проект" />
+
+        <StackPanel Grid.Row="2">
+            <TextBlock
+                FontWeight="Light"
+                Style="{DynamicResource SubtitleTextBlockStyle}"
+                Text="ТМН проект" />
+
+            <ui:SimpleStackPanel Margin="0,16,0,0" Spacing="8">
+                <TextBlock
+                    FontSize="14"
+                    FontWeight="Normal"
+                    Text="Имя проекта" />
+                <TextBox
+                    Width="520"
+                    HorizontalAlignment="Left"
+                    FontSize="14"
+                    FontWeight="Normal"
+                    Text="ТМН1" />
+            </ui:SimpleStackPanel>
+
+            <ui:SimpleStackPanel Margin="0,12,0,0" Spacing="8">
+                <TextBlock
+                    FontSize="14"
+                    FontWeight="Normal"
+                    Text="Расположение" />
+                <ui:SimpleStackPanel Orientation="Horizontal" Spacing="16">
+                    <TextBox
+                        Width="520"
+                        HorizontalAlignment="Left"
+                        FontSize="14"
+                        FontWeight="Normal"
+                        Text="ТМН1" />
+
+                    <Button Content=" ... " ToolTip="Проводник" />
+                </ui:SimpleStackPanel>
+            </ui:SimpleStackPanel>
+
+            <ui:SimpleStackPanel Margin="0,12,0,0" Spacing="8">
+                <TextBlock
+                    FontSize="14"
+                    FontWeight="Normal"
+                    Text="Решение" />
+
+                <TextBox
+                    Width="520"
+                    HorizontalAlignment="Left"
+                    FontSize="14"
+                    FontWeight="Normal"
+                    Text="ТМН1" />
+
+                <CheckBox>
+                    <CheckBox.Content>
+                        <TextBlock
+                            FontSize="14"
+                            FontWeight="Normal"
+                            Text="Поместить решение и проект в одном каталоге" />
+                    </CheckBox.Content>
+                </CheckBox>
+            </ui:SimpleStackPanel>
+
+        </StackPanel>
+
+        <ui:SimpleStackPanel
+            Grid.Row="3"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal"
+            Spacing="8">
+            <Button Width="90" Content="Назад" />
+            <Button Width="90" Content="Создать" />
+        </ui:SimpleStackPanel>
     </Grid>
 </UserControl>
