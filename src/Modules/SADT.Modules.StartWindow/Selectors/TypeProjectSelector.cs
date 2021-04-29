@@ -23,10 +23,10 @@ namespace SADT.Modules.StartWindow.Selectors
 
             selectedTemplate = setting.TypeTransformer switch
             {
-                TypeTransformer.TM => TypeTmnTemplate,
-                TypeTransformer.TMN => TypeTmnTemplate,
-                TypeTransformer.TMG => TypeTmgTemplate,
-                TypeTransformer.TMPNG => TypeTmpngTemplate,
+                TransformerType.TM => TypeTmnTemplate,
+                TransformerType.TMN => TypeTmnTemplate,
+                TransformerType.TMG => TypeTmgTemplate,
+                TransformerType.TMPNG => TypeTmpngTemplate,
                 _ => TypeTmpngTemplate,
             };
 

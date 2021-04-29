@@ -1,6 +1,8 @@
-﻿using Prism.Mvvm;
+﻿using Prism.Events;
+using Prism.Mvvm;
 using Prism.Regions;
 using SADT.Core;
+using SADT.Core.EventAggregator;
 using SADT.Modules.StartWindow.Views;
 
 namespace SADT.Modules.StartWindow.ViewModels
@@ -15,8 +17,10 @@ namespace SADT.Modules.StartWindow.ViewModels
             set => SetProperty(ref _scopedRegionManager, value);
         }
 
-        public StartWindowViewModel(IRegionManager regionManager)
+        public StartWindowViewModel(IEventAggregator eventAggregator, IRegionManager regionManager)
         {
+            eventAggregator.GetEvent<StartViewChangedEvent>()
+                .Subscribe((string nameView) => ScopedRegionManager.RequestNavigate(RegionNames.StartContent, nameView));
             ScopedRegionManager = regionManager.CreateRegionManager();
 
             ScopedRegionManager.RegisterViewWithRegion(RegionNames.StartContent, typeof(BeginWork));

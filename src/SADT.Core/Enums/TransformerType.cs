@@ -3,7 +3,7 @@
     /// <summary>
     /// Тип исполнения трансформатора.
     /// </summary>
-    public enum TypeTransformer
+    public enum TransformerType
     {
         /// <summary>
         /// Трансформатор силовой масленного типа.

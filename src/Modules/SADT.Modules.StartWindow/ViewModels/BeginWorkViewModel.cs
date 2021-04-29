@@ -1,7 +1,8 @@
 ﻿using Prism.Commands;
+using Prism.Events;
 using Prism.Regions;
-using SADT.Core;
 using SADT.Core.Enums;
+using SADT.Core.EventAggregator;
 using SADT.Core.Mvvm;
 using SADT.Modules.StartWindow.Models;
 using System;
@@ -12,7 +13,7 @@ namespace SADT.Modules.StartWindow.ViewModels
 {
     public class BeginWorkViewModel : RegionViewModelBase
     {
-        private readonly IRegionManager _regionManager;
+        private readonly IEventAggregator _eventAggregator;
         private ObservableCollection<SavedProjects> _saveProjects = new ObservableCollection<SavedProjects>();
 
         public ObservableCollection<SavedProjects> SaveProjects
@@ -23,26 +24,16 @@ namespace SADT.Modules.StartWindow.ViewModels
 
         public DelegateCommand CreateProjectCommand { get; private set; }
 
-        public BeginWorkViewModel(IRegionManager regionManager)
+        public BeginWorkViewModel(IEventAggregator eventAggregator)
         {
-            _regionManager = regionManager;
-
-            var savedProjects = Enumerable.Range(0, 4)
-                .Select(x => new SavedProjects
-                {
-                    TypeTransformer = TypeTransformer.TMG,
-                    DateCreate = DateTime.Now.AddDays(x),
-                    PathToProject = @$"C:\Users\GLevchenko\Downloads\Telegram Desktop\\Telegram Desktop\Project{x}"
-                })
-                .ToList();
-            SaveProjects.AddRange(savedProjects);
+            _eventAggregator = eventAggregator;
 
             CreateProjectCommand = new DelegateCommand(CreateProjectSubmit);
         }
 
         private void CreateProjectSubmit()
         {
-
+            _eventAggregator.GetEvent<StartViewChangedEvent>().Publish("ProjectSetup");
         }
     }
 }
