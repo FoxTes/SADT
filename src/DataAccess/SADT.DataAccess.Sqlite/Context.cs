@@ -1,11 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SADT.Core.Enums;
 using SADT.DataAccess.Sqlite.Entitys;
+using SADT.DataAccess.Sqlite.Entitys.Wire;
+using System;
 
 namespace SADT.DataAccess.Sqlite
 {
     public class Context : DbContext
     {
         public DbSet<Wire> Wires { get; set; }
+
+        public DbSet<LastProject> LastProjects { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

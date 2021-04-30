@@ -38,7 +38,7 @@
                     HorizontalAlignment="Left"
                     FontSize="14"
                     FontWeight="Normal"
-                    Text="ТМН1" />
+                    Text="{Binding NameProject}" />
             </ui:SimpleStackPanel>
 
             <ui:SimpleStackPanel Margin="0,12,0,0" Spacing="8">
@@ -52,7 +52,7 @@
                         HorizontalAlignment="Left"
                         FontSize="14"
                         FontWeight="Normal"
-                        Text="ТМН1" />
+                        Text="{Binding PathProject}" />
 
                     <Button Content=" ... " ToolTip="Проводник" />
                 </ui:SimpleStackPanel>
@@ -92,7 +92,10 @@
                 Width="90"
                 Command="{Binding BackCommand}"
                 Content="Назад" />
-            <Button Width="90" Content="Создать" />
+            <Button
+                Width="90"
+                Command="{Binding CreateProjectCommand}"
+                Content="Создать" />
         </ui:SimpleStackPanel>
     </Grid>
 </UserControl>

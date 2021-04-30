@@ -29,29 +29,62 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Menu HorizontalAlignment="Left" WindowChrome.IsHitTestVisibleInChrome="True">
-                <MenuItem Header="Файл">
-                    <MenuItem Header="Новый проект" InputGestureText="Ctrl+N" />
-                    <MenuItem Header="Открыть проект" InputGestureText="Ctrl+O" />
-                    <MenuItem Header="Сохранить как..." />
-                    <MenuItem Header="Сохранить" InputGestureText="Ctrl+S" />
-                    <MenuItem Header="Закрыть проект" IsEnabled="False" />
-                    <Separator />
-                    <MenuItem Header="Выход" InputGestureText="Ctrl+Q" />
-                </MenuItem>
 
-                <MenuItem Header="Тип расчета">
-                    <ui:RadioMenuItem
-                        GroupName="Group"
-                        Header="Расчет трансформатора"
-                        IsChecked="True" />
-                    <ui:RadioMenuItem GroupName="Group" Header="Расчет оптимизационный" />
-                </MenuItem>
+            <StackPanel Orientation="Horizontal">
+                <Rectangle
+                    Width="32"
+                    Height="32"
+                    Margin="4">
+                    <Rectangle.Fill>
+                        <DrawingBrush>
+                            <DrawingBrush.Drawing>
+                                <DrawingGroup ClipGeometry="M0,0 V400 H400 V0 H0 Z">
+                                    <DrawingGroup Opacity="1">
+                                        <GeometryDrawing Brush="#FF232423" Geometry="F0 M400,400z M0,0z M32.525,199.869L32.525,367.213 199.869,367.213 367.213,367.213 367.213,199.869 367.213,32.525 199.869,32.525 32.525,32.525 32.525,199.869 M336,63.541C336,63.577,274.682,124.925,199.738,199.869L63.475,336.131 63.475,199.803 63.475,63.475 199.738,63.475C274.682,63.475,336,63.505,336,63.541 M94.426,177.901L94.426,261.377 177.836,177.967C223.711,132.092 261.246,94.528 261.246,94.492 261.246,94.456 223.711,94.426 177.836,94.426L94.426,94.426 94.426,177.901 M289.838,197.638L243.672,243.804 289.77,289.902 335.869,336 221.64,336 107.412,336 122.885,320.525 138.359,305.049 199.737,305.049 261.114,305.049 230.492,274.426 199.869,243.804 267.869,175.803 335.869,107.803 335.936,129.637 336.003,151.472 289.838,197.638" />
+                                        <GeometryDrawing Brush="#FF83FB04" Geometry="F0 M400,400z M0,0z M1.574,199.869L1.574,398.164 199.869,398.164 398.164,398.164 398.164,199.869 398.164,1.574 199.869,1.574 1.574,1.574 1.574,199.869 M367.213,199.869L367.213,367.213 199.869,367.213 32.525,367.213 32.525,199.869 32.525,32.525 199.869,32.525 367.213,32.525 367.213,199.869 M63.475,199.803L63.475,336.131 199.738,199.869C274.682,124.925 336,63.577 336,63.541 336,63.505 274.682,63.475 199.738,63.475L63.475,63.475 63.475,199.803 M261.246,94.492C261.246,94.528,223.711,132.092,177.836,177.967L94.426,261.377 94.426,177.901 94.426,94.426 177.836,94.426C223.711,94.426,261.246,94.456,261.246,94.492 M267.869,175.803L199.869,243.804 230.492,274.426 261.114,305.049 199.737,305.049 138.359,305.049 122.885,320.525 107.412,336 221.64,336 335.869,336 289.77,289.902 243.672,243.804 289.838,197.638 336.003,151.472 335.936,129.637 335.869,107.803 267.869,175.803" />
+                                        <GeometryDrawing Brush="#FFF9FBEE" Geometry="F0 M400,400z M0,0z M0,200L0,400 200,400 400,400 400,200 400,0 200,0 0,0 0,200 M398.164,199.869L398.164,398.164 199.869,398.164 1.574,398.164 1.574,199.869 1.574,1.574 199.869,1.574 398.164,1.574 398.164,199.869" />
+                                    </DrawingGroup>
+                                </DrawingGroup>
+                            </DrawingBrush.Drawing>
+                        </DrawingBrush>
+                    </Rectangle.Fill>
 
-                <MenuItem Header="Инструменты">
-                    <MenuItem Header="Справочник" />
-                </MenuItem>
-            </Menu>
+                    <Rectangle.Style>
+                        <Style TargetType="{x:Type Rectangle}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Passed}" Value="{x:Null}">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Rectangle.Style>
+                </Rectangle>
+
+                <Menu HorizontalAlignment="Left" WindowChrome.IsHitTestVisibleInChrome="True">
+                    <MenuItem Header="Файл">
+                        <MenuItem Header="Новый проект" InputGestureText="Ctrl+N" />
+                        <MenuItem Header="Открыть проект" InputGestureText="Ctrl+O" />
+                        <MenuItem Header="Сохранить как..." />
+                        <MenuItem Header="Сохранить" InputGestureText="Ctrl+S" />
+                        <MenuItem Header="Закрыть проект" IsEnabled="False" />
+                        <Separator />
+                        <MenuItem Header="Выход" InputGestureText="Ctrl+Q" />
+                    </MenuItem>
+
+                    <MenuItem Header="Тип расчета">
+                        <ui:RadioMenuItem
+                            GroupName="Group"
+                            Header="Расчет трансформатора"
+                            IsChecked="True" />
+                        <ui:RadioMenuItem GroupName="Group" Header="Расчет оптимизационный" />
+                    </MenuItem>
+
+                    <MenuItem Header="Инструменты">
+                        <MenuItem Header="Справочник" />
+                    </MenuItem>
+                </Menu>
+            </StackPanel>
+
         </Grid>
 
         <Grid Grid.Row="1">
@@ -60,7 +93,10 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <ui:CommandBar HorizontalAlignment="Left" Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
-                <ui:AppBarButton InputGestureText="Ctrl+N" Label="Новый проект">
+                <ui:AppBarButton
+                    Command="{Binding CreateNewProject}"
+                    InputGestureText="Ctrl+N"
+                    Label="Новый проект">
                     <ui:AppBarButton.Icon>
                         <ui:PathIcon HorizontalAlignment="Center" Data="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
                     </ui:AppBarButton.Icon>

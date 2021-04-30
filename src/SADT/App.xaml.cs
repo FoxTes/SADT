@@ -2,6 +2,7 @@
 using Prism.Modularity;
 using SADT.DataAccess.Sqlite;
 using SADT.Modules.StartWindow.Views;
+using SADT.Services.FileManager;
 using SADT.Views;
 using System;
 using System.Windows;
@@ -25,7 +26,7 @@ namespace SADT
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            containerRegistry.RegisterSingleton<IFileManager, FileManager>();
         }
 
         protected override void OnInitialized()
@@ -37,6 +38,9 @@ namespace SADT
             {
                 var startWindow = Container.Resolve<StartWindow>();
                 var result = startWindow.ShowDialog();
+
+                if ((bool)!result)
+                    Application.Current.Shutdown();
             }
             base.OnInitialized();
         }

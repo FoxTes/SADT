@@ -1,7 +1,7 @@
 ﻿using SADT.DataAccess.Sqlite.Entitys.Base;
 using System.Collections.Generic;
 
-namespace SADT.DataAccess.Sqlite.Entitys
+namespace SADT.DataAccess.Sqlite.Entitys.Wire
 {
     public class Wire : BaseEntity
     {

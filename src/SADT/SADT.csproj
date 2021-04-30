@@ -26,6 +26,7 @@
     <ProjectReference Include="..\DataAccess\SADT.DataAccess.Sqlite\SADT.DataAccess.Sqlite.csproj" />
     <ProjectReference Include="..\Modules\SADT.Modules.StartWindow\SADT.Modules.StartWindow.csproj" />
     <ProjectReference Include="..\SADT.Core\SADT.Core.csproj" />
+    <ProjectReference Include="..\Services\SADT.Services.FileManager\SADT.Services.FileManager.csproj" />
   </ItemGroup>
 
 </Project>

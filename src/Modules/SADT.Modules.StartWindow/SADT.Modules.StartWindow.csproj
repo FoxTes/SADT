@@ -9,6 +9,8 @@
     <PackageReference Include="Prism.Wpf" Version="8.0.0.1909" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DataAccess\SADT.DataAccess.Sqlite\SADT.DataAccess.Sqlite.csproj" />
     <ProjectReference Include="..\..\SADT.Core\SADT.Core.csproj" />
+    <ProjectReference Include="..\..\Services\SADT.Services.FileManager\SADT.Services.FileManager.csproj" />
   </ItemGroup>
 </Project>

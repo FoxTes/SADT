@@ -1,7 +1,7 @@
-﻿using SADT.Core.Enums;
-using SADT.Modules.StartWindow.Models;
+﻿using SADT.Modules.StartWindow.Models;
 using System.Windows;
 using System.Windows.Controls;
+using SADT.Core.Enums;
 
 namespace SADT.Modules.StartWindow.Selectors
 {
@@ -18,15 +18,15 @@ namespace SADT.Modules.StartWindow.Selectors
         {
             var selectedTemplate = TypeTmnTemplate;
 
-            if (!(item is SavedProjects setting))
+            if (!(item is SaveProject setting))
                 return selectedTemplate;
 
             selectedTemplate = setting.TypeTransformer switch
             {
-                TransformerType.TM => TypeTmnTemplate,
-                TransformerType.TMN => TypeTmnTemplate,
-                TransformerType.TMG => TypeTmgTemplate,
-                TransformerType.TMPNG => TypeTmpngTemplate,
+                TransformerType.Tm => TypeTmnTemplate,
+                TransformerType.Tmn => TypeTmnTemplate,
+                TransformerType.Tmg => TypeTmgTemplate,
+                TransformerType.Tmpng => TypeTmpngTemplate,
                 _ => TypeTmpngTemplate,
             };
 
