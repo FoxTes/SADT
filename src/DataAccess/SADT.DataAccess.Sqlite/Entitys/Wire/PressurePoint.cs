@@ -11,3 +11,4 @@ namespace SADT.DataAccess.Sqlite.Entitys.Wire
         public Wire Wire { get; set; }
     }
 }
+

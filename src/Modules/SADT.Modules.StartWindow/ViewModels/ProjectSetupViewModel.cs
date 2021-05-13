@@ -10,13 +10,14 @@ using SADT.Services.FileManager;
 using SmartThermo.Core.Extensions;
 using System;
 using System.Threading.Tasks;
-using System.Windows;
+using System.Windows.Forms;
 
 namespace SADT.Modules.StartWindow.ViewModels
 {
     public class ProjectSetupViewModel : RegionViewModelBase
     {
         private readonly IFileManager _fileManager;
+
         private string _nameProject;
         private string _pathProject;
 
@@ -36,6 +37,8 @@ namespace SADT.Modules.StartWindow.ViewModels
 
         public DelegateCommand CreateProjectCommand { get; }
 
+        public DelegateCommand ChangePathProject { get; }
+
         public ProjectSetupViewModel(IEventAggregator eventAggregator, IFileManager fileManager)
         {
             _fileManager = fileManager;
@@ -51,13 +54,22 @@ namespace SADT.Modules.StartWindow.ViewModels
             });
             CreateProjectCommand = new DelegateCommand(() =>
             {
-                SaveProject().AwaitEx(() =>
-                eventAggregator
-                    .GetEvent<StartViewClosedEvent>()
-                    .Publish(true), (ex) => 
-                    {
-                        MessageBox.Show("Не удалось создать проект."); 
-                    });
+                SaveProject().AwaitEx(() => {
+                    _fileManager.NotificationProjectChange();
+                    eventAggregator
+                        .GetEvent<StartViewClosedEvent>()
+                        .Publish(true); }, (ex) =>
+                        {
+                            System.Windows.MessageBox.Show("Не удалось создать проект.");
+                        });
+            });
+            ChangePathProject = new DelegateCommand(() =>
+            {
+                using var fbd = new FolderBrowserDialog();
+
+                var result = fbd.ShowDialog();
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                    PathProject = fbd.SelectedPath;
             });
         }
 

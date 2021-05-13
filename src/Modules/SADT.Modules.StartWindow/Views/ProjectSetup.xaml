@@ -54,7 +54,10 @@
                         FontWeight="Normal"
                         Text="{Binding PathProject}" />
 
-                    <Button Content=" ... " ToolTip="Проводник" />
+                    <Button
+                        Command="{Binding ChangePathProject}"
+                        Content=" ... "
+                        ToolTip="Проводник" />
                 </ui:SimpleStackPanel>
             </ui:SimpleStackPanel>
 
@@ -69,7 +72,7 @@
                     HorizontalAlignment="Left"
                     FontSize="14"
                     FontWeight="Normal"
-                    Text="ТМН1" />
+                    Text="..." />
 
                 <CheckBox>
                     <CheckBox.Content>

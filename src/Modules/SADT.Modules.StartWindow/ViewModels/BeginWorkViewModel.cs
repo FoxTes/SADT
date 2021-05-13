@@ -54,6 +54,7 @@ namespace SADT.Modules.StartWindow.ViewModels
             CreateWithoutProjectCommand = new DelegateCommand(() =>
             {
                 fileManager.LoadEventType = LoadEventType.Default;
+                fileManager.NotificationProjectChange();
 
                 eventAggregator
                     .GetEvent<StartViewClosedEvent>()

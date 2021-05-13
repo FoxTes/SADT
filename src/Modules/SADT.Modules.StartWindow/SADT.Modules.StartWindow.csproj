@@ -1,8 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UseWPF>true</UseWPF>
-    <AssemblyName>SADT.Modules.StartWindow</AssemblyName>
+	<UseWPF>true</UseWPF>
+	<UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>SADT.Modules.StartWindow</AssemblyName>	  
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="ModernWpfUI" Version="0.9.4" />

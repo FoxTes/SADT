@@ -1,7 +1,7 @@
-﻿using SADT.Modules.StartWindow.Models;
+﻿using SADT.Core.Enums;
+using SADT.Modules.StartWindow.Models;
 using System.Windows;
 using System.Windows.Controls;
-using SADT.Core.Enums;
 
 namespace SADT.Modules.StartWindow.Selectors
 {
@@ -12,7 +12,6 @@ namespace SADT.Modules.StartWindow.Selectors
         public DataTemplate TypeTmgTemplate { get; set; }
 
         public DataTemplate TypeTmpngTemplate { get; set; }
-
 
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {

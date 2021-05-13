@@ -207,8 +207,8 @@
         </DataTemplate>
         <selectors:TypeProjectSelector
             x:Key="TypeProjectSelector"
-            TypeTmgTemplate="{StaticResource TypeTmnTemplate}"
-            TypeTmnTemplate="{StaticResource TypeTmgTemplate}"
+            TypeTmgTemplate="{StaticResource TypeTmgTemplate}"
+            TypeTmnTemplate="{StaticResource TypeTmnTemplate}"
             TypeTmpngTemplate="{StaticResource TypeTmpngTemplate}" />
 
         <DataTemplate x:Key="LoadSaveProjects">
