@@ -7,7 +7,6 @@ using SADT.Core.Mvvm;
 using SADT.DataAccess.Sqlite;
 using SADT.DataAccess.Sqlite.Entitys;
 using SADT.Services.FileManager;
-using SmartThermo.Core.Extensions;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -54,7 +53,7 @@ namespace SADT.Modules.StartWindow.ViewModels
             });
             CreateProjectCommand = new DelegateCommand(() =>
             {
-                SaveProject().AwaitEx(() => {
+                SaveProject().Await(() => {
                     _fileManager.NotificationProjectChange();
                     eventAggregator
                         .GetEvent<StartViewClosedEvent>()

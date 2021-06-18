@@ -251,7 +251,7 @@
             <ui:SimpleStackPanel Spacing="16">
                 <TextBlock
                     Style="{DynamicResource CaptionTextBlockStyle}"
-                    Text="При использовании SADT все открыаемые проекты будут появляться здесь для быстрого доступа."
+                    Text="При использовании SADT все открываемые проекты будут появляться здесь для быстрого доступа."
                     TextWrapping="Wrap" />
                 <TextBlock
                     Style="{DynamicResource CaptionTextBlockStyle}"
@@ -346,7 +346,7 @@
                 Spacing="16">
                 <TextBlock
                     Style="{DynamicResource CaptionTextBlockStyle}"
-                    Text="При использовании SADT все открыаемые проекты будут появляться здесь для быстрого доступа."
+                    Text="При использовании SADT все открываемые проекты будут появляться здесь для быстрого доступа."
                     TextWrapping="Wrap" />
                 <TextBlock
                     Style="{DynamicResource CaptionTextBlockStyle}"

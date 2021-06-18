@@ -1,15 +1,26 @@
-﻿using SADT.Core.Enums;
-using System;
+﻿using System;
+using SADT.Core.Enums;
 
-namespace SADT.Factorys
+namespace SADT.Factories
 {
+    /// <summary>
+    /// Фабрика для создания элементов меню.
+    /// </summary>
     internal interface IItemMenuFactory
     {
+        /// <summary>
+        /// Создает элементы меню в зависимости от типа трансформатора.
+        /// </summary>
+        /// <param name="transformerType">Тип трансформатора.</param>
+        /// <returns>Элементы меню.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">Нет реализации.</exception>
         IItemMenu CreateItems(TransformerType transformerType);
     }
 
+    /// <inheritdoc />
     internal class ItemMenuFactory : IItemMenuFactory
     {
+        /// <inheritdoc/>
         public IItemMenu CreateItems(TransformerType transformerType)
         {
             return transformerType switch

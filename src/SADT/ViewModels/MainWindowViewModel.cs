@@ -3,14 +3,14 @@ using Prism.Commands;
 using Prism.Ioc;
 using SADT.Core.Enums;
 using SADT.Core.Mvvm;
-using SADT.Factorys;
+using SADT.Factories;
 using SADT.Models;
 using SADT.Modules.StartWindow.Views;
 using SADT.Services.FileManager;
-using SADT.Services.Notifications;
 
 namespace SADT.ViewModels
 {
+    /// <inheritdoc />
     public class MainWindowViewModel : RegionViewModelBase
     {
         private readonly IFileManager _fileManager;
@@ -19,27 +19,10 @@ namespace SADT.ViewModels
 
         private ObservableCollection<CategoryBase> _categories = new ObservableCollection<CategoryBase>();
 
-        public ObservableCollection<CategoryBase> Categories
-        {
-            get => _categories;
-            set => SetProperty(ref _categories, value);
-        }
-        
-        public LoadEventType LoadEventType
-        {
-            get => _loadEventType;
-            set => SetProperty(ref _loadEventType, value);
-        }
- 
-        public TransformerType TypeTransformer
-        {
-            get => _typeTransformer;
-            set => SetProperty(ref _typeTransformer, value);
-        }
-
-        public DelegateCommand CreateNewProject { get; }
-
-        public MainWindowViewModel(IContainerProvider containerProvider, IFileManager fileManager, INotificationService notificationService)
+        /// <inheritdoc />
+        public MainWindowViewModel(
+            IContainerProvider containerProvider,
+            IFileManager fileManager)
         {
             _fileManager = fileManager;
             _fileManager.ProjectChanged += (o, i) => Init();
@@ -48,13 +31,42 @@ namespace SADT.ViewModels
 
             CreateNewProject = new DelegateCommand(() =>
             {
-                notificationService.ShowNotification(message: "Привет");
-
-                //var startWindow = containerProvider.Resolve<StartWindow>();
-                //startWindow.ShowDialog();
+                var startWindow = containerProvider.Resolve<StartWindow>();
+                startWindow.ShowDialog();
             });
-            //notificationService.ShowNotification(message: "Привет");
         }
+
+        /// <summary>
+        /// Элементы навигационного меню.
+        /// </summary>
+        public ObservableCollection<CategoryBase> Categories
+        {
+            get => _categories;
+            set => SetProperty(ref _categories, value);
+        }
+
+        /// <summary>
+        /// Тип события загрузки данных для приложения.
+        /// </summary>
+        public LoadEventType LoadEventType
+        {
+            get => _loadEventType;
+            set => SetProperty(ref _loadEventType, value);
+        }
+
+        /// <summary>
+        /// Тип трансформатора.
+        /// </summary>
+        public TransformerType TypeTransformer
+        {
+            get => _typeTransformer;
+            set => SetProperty(ref _typeTransformer, value);
+        }
+
+        /// <summary>
+        /// Команда для создания нового проекта.
+        /// </summary>
+        public DelegateCommand CreateNewProject { get; }
 
         private void Init()
         {

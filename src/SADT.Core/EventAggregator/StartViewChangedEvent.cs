@@ -2,5 +2,10 @@
 
 namespace SADT.Core.EventAggregator
 {
-    public class StartViewChangedEvent : PubSubEvent<string> { }
+    /// <summary>
+    /// Второстепенный класс, предназначенный для оповещения изменения представления стартовой страницы.
+    /// </summary>
+    public class StartViewChangedEvent : PubSubEvent<string>
+    {
+    }
 }

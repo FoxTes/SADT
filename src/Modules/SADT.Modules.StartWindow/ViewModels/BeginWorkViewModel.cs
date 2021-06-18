@@ -6,8 +6,6 @@ using SADT.Core.Mvvm;
 using SADT.DataAccess.Sqlite;
 using SADT.Modules.StartWindow.Models;
 using SADT.Services.FileManager;
-using SmartThermo.Core.Extensions;
-using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -40,7 +38,7 @@ namespace SADT.Modules.StartWindow.ViewModels
 
         public BeginWorkViewModel(IEventAggregator eventAggregator, IFileManager fileManager)
         {
-            GetSaveProject().AwaitEx();
+            GetSaveProject().Await();
 
             CreateProjectCommand = new DelegateCommand<object>((type) =>
             {
@@ -62,7 +60,7 @@ namespace SADT.Modules.StartWindow.ViewModels
             });
             DeleteSelectProject = new DelegateCommand(() =>
             {
-                DeleteSaveProject().AwaitEx(() => 
+                DeleteSaveProject().Await(() => 
                     SaveProjects.Remove(SaveProjectSelected), (ex) =>
                     {
                         MessageBox.Show("Не удалось удалить проект.");
