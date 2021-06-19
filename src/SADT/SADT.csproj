@@ -35,6 +35,7 @@
     <ProjectReference Include="..\DataAccess\SADT.DataAccess.Sqlite\SADT.DataAccess.Sqlite.csproj" />
     <ProjectReference Include="..\Modules\SADT.Modules.StartWindow\SADT.Modules.StartWindow.csproj" />
     <ProjectReference Include="..\SADT.Core\SADT.Core.csproj" />
+    <ProjectReference Include="..\Services\SADT.Services.FIleDialog\SADT.Services.FIleDialog.csproj" />
     <ProjectReference Include="..\Services\SADT.Services.FileManager\SADT.Services.FileManager.csproj" />
     <ProjectReference Include="..\Services\SADT.Services.Notifications\SADT.Services.Notifications.csproj" />
   </ItemGroup>

@@ -9,7 +9,7 @@ using SADT.DataAccess.Sqlite.Entitys;
 using SADT.Services.FileManager;
 using System;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using SADT.Services.FIleDialog;
 
 namespace SADT.Modules.StartWindow.ViewModels
 {
@@ -38,7 +38,10 @@ namespace SADT.Modules.StartWindow.ViewModels
 
         public DelegateCommand ChangePathProject { get; }
 
-        public ProjectSetupViewModel(IEventAggregator eventAggregator, IFileManager fileManager)
+        public ProjectSetupViewModel(
+            IEventAggregator eventAggregator, 
+            IFileManager fileManager,
+            IFileDialog fileDialog)
         {
             _fileManager = fileManager;
 
@@ -57,18 +60,15 @@ namespace SADT.Modules.StartWindow.ViewModels
                     _fileManager.NotificationProjectChange();
                     eventAggregator
                         .GetEvent<StartViewClosedEvent>()
-                        .Publish(true); }, (ex) =>
+                        .Publish(true); }, ex =>
                         {
                             System.Windows.MessageBox.Show("Не удалось создать проект.");
                         });
             });
             ChangePathProject = new DelegateCommand(() =>
             {
-                using var fbd = new FolderBrowserDialog();
-
-                var result = fbd.ShowDialog();
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-                    PathProject = fbd.SelectedPath;
+                if (fileDialog.FolderBrowserDialog())
+                    PathProject = fileDialog.FilePath;
             });
         }
 
@@ -81,7 +81,7 @@ namespace SADT.Modules.StartWindow.ViewModels
 
         private async Task SaveProject()
         {
-            var saveProjectask = Task.Run(() =>
+            var saveProjectTask = Task.Run(() =>
             {
                 using var context = new Context();
                 var project = new LastProject
@@ -94,7 +94,7 @@ namespace SADT.Modules.StartWindow.ViewModels
                 context.LastProjects.Add(project);
                 context.SaveChanges();
             });
-            await Task.WhenAll(saveProjectask);
+            await Task.WhenAll(saveProjectTask);
         }
     }
 }

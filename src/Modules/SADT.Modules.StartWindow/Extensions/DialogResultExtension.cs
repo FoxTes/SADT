@@ -10,11 +10,11 @@ namespace SADT.Modules.StartWindow.Extensions
 
         private static void DialogResultChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is Window window)
-            {
-                if (window.Activate())
-                    window.DialogResult = e.NewValue as bool?;
-            }             
+            if (!(d is Window window)) 
+                return;
+            
+            if (window.Activate())
+                window.DialogResult = e.NewValue as bool?;
         }
 
         public static void SetDialogResult(Window target, bool? value)

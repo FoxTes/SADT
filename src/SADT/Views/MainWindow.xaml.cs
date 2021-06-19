@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using SADT.Core.Abstractions;
 
 namespace SADT.Views
 {
@@ -11,6 +12,16 @@ namespace SADT.Views
         public MainWindow()
         {
             InitializeComponent();
+            Loaded += OnLoaded;
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            if (!(DataContext is ICloseWindows vm))
+                return;
+
+            vm.Close += Close;
+            Closing += (o, args) => args.Cancel = !vm.CanClose();
         }
     }
 }

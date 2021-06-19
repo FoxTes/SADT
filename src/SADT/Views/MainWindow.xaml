@@ -10,6 +10,7 @@
     xmlns:prism="http://prismlibrary.com/"
     xmlns:selector="clr-namespace:SADT.Selectors"
     xmlns:ui="http://schemas.modernwpf.com/2019"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
     Title="SADT"
     d:DesignHeight="720"
     d:DesignWidth="1280"
@@ -19,6 +20,12 @@
     ui:WindowHelper.UseModernWindowStyle="True"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
+    
+    <b:Interaction.Triggers>
+        <b:EventTrigger EventName="Closing">
+            <b:InvokeCommandAction Command="{Binding ClosingWindowCommand}" />
+        </b:EventTrigger>
+    </b:Interaction.Triggers>
 
     <Window.Resources>
         <DataTemplate x:Key="CategoryDefault" DataType="models:CategoryDefault">

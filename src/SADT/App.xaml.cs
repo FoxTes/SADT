@@ -4,6 +4,7 @@ using Prism.Ioc;
 using Prism.Modularity;
 using SADT.DataAccess.Sqlite;
 using SADT.Modules.StartWindow.Views;
+using SADT.Services.FIleDialog;
 using SADT.Services.FileManager;
 using SADT.Services.Notifications;
 using SADT.Views;
@@ -31,6 +32,7 @@ namespace SADT
         {
             containerRegistry.RegisterSingleton<INotificationService, NotificationService>();
             containerRegistry.RegisterSingleton<IFileManager, FileManager>();
+            containerRegistry.RegisterSingleton<IFileDialog, FileDialog>();
         }
 
         /// <inheritdoc />
@@ -44,10 +46,11 @@ namespace SADT
                 var startWindow = Container.Resolve<StartWindow>();
                 var result = startWindow.ShowDialog();
 
-                if ((bool)!result)
+                if (result != null && (bool)!result)
                     Current.Shutdown();
             }
 
+            // TODO: Необходимо подгружать проект.
             base.OnInitialized();
         }
 

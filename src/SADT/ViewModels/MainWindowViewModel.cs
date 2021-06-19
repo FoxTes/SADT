@@ -1,6 +1,9 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Windows;
 using Prism.Commands;
 using Prism.Ioc;
+using SADT.Core.Abstractions;
 using SADT.Core.Enums;
 using SADT.Core.Mvvm;
 using SADT.Factories;
@@ -10,14 +13,17 @@ using SADT.Services.FileManager;
 
 namespace SADT.ViewModels
 {
-    /// <inheritdoc />
-    public class MainWindowViewModel : RegionViewModelBase
+    /// <summary>
+    /// Вью модель главного окна.
+    /// </summary>
+    public class MainWindowViewModel : RegionViewModelBase, ICloseWindows
     {
         private readonly IFileManager _fileManager;
         private LoadEventType _loadEventType;
         private TransformerType _typeTransformer;
 
         private ObservableCollection<CategoryBase> _categories = new ObservableCollection<CategoryBase>();
+        private bool _canClose;
 
         /// <inheritdoc />
         public MainWindowViewModel(
@@ -33,6 +39,16 @@ namespace SADT.ViewModels
             {
                 var startWindow = containerProvider.Resolve<StartWindow>();
                 startWindow.ShowDialog();
+            });
+
+            ClosingWindowCommand = new DelegateCommand(() =>
+            {
+                var dialogResult = MessageBox.Show("Test", "Test", MessageBoxButton.YesNo);
+                if (dialogResult != MessageBoxResult.Yes)
+                    return;
+
+                _canClose = true;
+                Close.Invoke();
             });
         }
 
@@ -64,9 +80,25 @@ namespace SADT.ViewModels
         }
 
         /// <summary>
+        /// 1.
+        /// </summary>
+        public Action Close { get; set; }
+
+        /// <summary>
         /// Команда для создания нового проекта.
         /// </summary>
         public DelegateCommand CreateNewProject { get; }
+
+        /// <summary>
+        /// Событие закрытия главного окна.
+        /// </summary>
+        public DelegateCommand ClosingWindowCommand { get; }
+
+        /// <inheritdoc />
+        public bool CanClose()
+        {
+            return _canClose;
+        }
 
         private void Init()
         {

@@ -17,7 +17,7 @@ namespace SADT.Services.FileManager
 
         public void NotificationProjectChange()
         {
-            ProjectChanged?.Invoke(this, null);
+            ProjectChanged?.Invoke(this, null!);
         }
     }
 }
