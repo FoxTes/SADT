@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+	
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>1.3</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+<data name="CategoryAccommodation" xml:space="preserve">
+    <value>Категория размещения</value>
+  </data>
+  <data name="CategoryAccommodation1" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="CategoryAccommodation11" xml:space="preserve">
+    <value>1.1</value>
+  </data>
+  <data name="CategoryAccommodation2" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="CategoryAccommodation21" xml:space="preserve">
+    <value>2.1</value>
+  </data>
+  <data name="CategoryAccommodation3" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="CategoryAccommodation31" xml:space="preserve">
+    <value>3.1</value>
+  </data>
+  <data name="CategoryAccommodation4" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="CategoryAccommodation41" xml:space="preserve">
+    <value>4.1</value>
+  </data>
+  <data name="CategoryAccommodation42" xml:space="preserve">
+    <value>4.2</value>
+  </data>
+  <data name="CategoryAccommodation5" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="CategoryAccommodation51" xml:space="preserve">
+    <value>5.1</value>
+  </data>
+  <data name="ClimaticPerformance" xml:space="preserve">
+    <value>Климатическое исполнение</value>
+  </data>
+  <data name="ClimaticPerformanceHL" xml:space="preserve">
+    <value>ХЛ</value>
+  </data>
+  <data name="ClimaticPerformanceT" xml:space="preserve">
+    <value>Т</value>
+  </data>
+  <data name="ClimaticPerformanceY" xml:space="preserve">
+    <value>У</value>
+  </data>
+  <data name="ClimaticPerformanceYHL" xml:space="preserve">
+    <value>УХЛ</value>
+  </data>
+  <data name="ConnectionTypeHighVoltageD" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="ConnectionTypeHighVoltage" xml:space="preserve">
+    <value>Схема соединения ВН</value>
+  </data>
+  <data name="ConnectionTypeLowVoltage" xml:space="preserve">
+    <value>Схема соединения НН</value>
+  </data>
+  <data name="ConnectionTypeHighVoltageY" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="ConnectionTypeHighVoltageYn" xml:space="preserve">
+    <value>Yн</value>
+  </data>
+  <data name="ConnectionTypeLowVoltageZ" xml:space="preserve">
+    <value>Z</value>
+  </data>
+  <data name="CoolingMethod" xml:space="preserve">
+    <value>Способ охлаждения трансформатора</value>
+  </data>
+  <data name="CoolingMethodC" xml:space="preserve">
+    <value>Ц</value>
+  </data>
+  <data name="CoolingMethodD" xml:space="preserve">
+    <value>Д</value>
+  </data>
+  <data name="CoolingMethodDC" xml:space="preserve">
+    <value>ДЦ</value>
+  </data>
+  <data name="CoolingMethodM" xml:space="preserve">
+    <value>М</value>
+  </data>
+  <data name="CoolingMethodMC" xml:space="preserve">
+    <value>МЦ</value>
+  </data>
+  <data name="CoolingMethodNC" xml:space="preserve">
+    <value>НЦ</value>
+  </data>
+  <data name="CoolingMethodNDC" xml:space="preserve">
+    <value>НДЦ</value>
+  </data>
+  <data name="CoolingMethodNMC" xml:space="preserve">
+    <value>НМЦ</value>
+  </data>
+  <data name="EarthquakeIntensity" xml:space="preserve">
+    <value>Интенсивность землетрясения, баллы по MSK-64</value>
+  </data>
+  <data name="EarthquakeIntensity1" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="EarthquakeIntensity2" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="EarthquakeIntensity3" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="EarthquakeIntensity4" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="EarthquakeIntensity5" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="EarthquakeIntensity6" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="EarthquakeIntensity7" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="EarthquakeIntensity8" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="EarthquakeIntensity9" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="ExternalInsulation" xml:space="preserve">
+    <value>Категория исполнения внешней изоляции</value>
+  </data>
+  <data name="Frequency" xml:space="preserve">
+    <value>Частота, Гц</value>
+  </data>
+  <data name="Frequency50" xml:space="preserve">
+    <value>50</value>
+  </data>
+  <data name="Frequency60" xml:space="preserve">
+    <value>60</value>
+  </data>
+  <data name="GroupType" xml:space="preserve">
+    <value>Группа соединения</value>
+  </data>
+  <data name="GroupType0" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="GroupType1" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="GroupType10" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="GroupType11" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="GroupType2" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="GroupType3" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="GroupType4" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="GroupType5" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="GroupType6" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="GroupType7" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="GroupType8" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="GroupType9" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="InstallationAltitude" xml:space="preserve">
+    <value>Высота установки над уровнем моря, не более, м</value>
+  </data>
+  <data name="InsulationMode" xml:space="preserve">
+    <value>Режим технологической обработки изоляции</value>
+  </data>
+  <data name="InsulationModeA" xml:space="preserve">
+    <value>А</value>
+  </data>
+  <data name="InternalInsulation" xml:space="preserve">
+    <value>Уровень исполнения внутренней изоляции</value>
+  </data>
+  <data name="InternalInsulationa" xml:space="preserve">
+    <value>а</value>
+  </data>
+  <data name="InternalInsulationb" xml:space="preserve">
+    <value>б</value>
+  </data>
+  <data name="InternalInsulationI" xml:space="preserve">
+    <value>I</value>
+  </data>
+  <data name="InternalInsulationII" xml:space="preserve">
+    <value>II</value>
+  </data>
+  <data name="InternalInsulationIII" xml:space="preserve">
+    <value>III</value>
+  </data>
+  <data name="InternalInsulationIIx" xml:space="preserve">
+    <value>II*</value>
+  </data>
+  <data name="InternalInsulationIV" xml:space="preserve">
+    <value>IV</value>
+  </data>
+  <data name="LoadLossesDeviationMaximum" xml:space="preserve">
+    <value>Максимальное отклонение потерь короткого замыкания основного ответвления, %</value>
+  </data>
+  <data name="LoadLossesDeviationMinimum" xml:space="preserve">
+    <value>Минимальное отклонение потерь короткого замыкания основного ответвления, %</value>
+  </data>
+  <data name="LoadLossesNominal" xml:space="preserve">
+    <value>Потери короткого замыкания, Вт</value>
+  </data>
+  <data name="LoadMode" xml:space="preserve">
+    <value>Режим нагрузки</value>
+  </data>
+  <data name="LoadModeLong" xml:space="preserve">
+    <value>Продолжительный</value>
+  </data>
+  <data name="LoadModeShort" xml:space="preserve">
+    <value>Кратковременный</value>
+  </data>
+  <data name="LowerOperatingTemperature" xml:space="preserve">
+    <value>Нижнее рабочее значение температуры воздуха, С</value>
+  </data>
+  <data name="NoLoadCurrentDeviationMaximum" xml:space="preserve">
+    <value>Максимальное отклонение тока холостого хода, %</value>
+  </data>
+  <data name="NoLoadCurrentDeviationMinimum" xml:space="preserve">
+    <value>Минимальное отклонение тока холостого хода, %</value>
+  </data>
+  <data name="NoLoadCurrentNominal" xml:space="preserve">
+    <value>Ток холостого хода, %</value>
+  </data>
+  <data name="NoLoadLossesDeviationMaximum" xml:space="preserve">
+    <value>Максимальное отклонение потерь холостого хода, %</value>
+  </data>
+  <data name="NoLoadLossesDeviationMinimum" xml:space="preserve">
+    <value>Минимальное отклонение потерь холостого хода, %</value>
+  </data>
+  <data name="NoLoadLossesNominal" xml:space="preserve">
+    <value>Потери холостого хода, Вт</value>
+  </data>
+  <data name="OilUpperLayersExcessTemperature" xml:space="preserve">
+    <value>Превышение температуры верхних слоев масла, С</value>
+  </data>
+  <data name="PhaseNumber" xml:space="preserve">
+    <value>Число фаз</value>
+  </data>
+  <data name="PhaseNumber1" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="PhaseNumber3" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="TransformerPower" xml:space="preserve">
+    <value>Полная мощность, кВА</value>
+  </data>
+  <data name="RatioDeviationMainMaximum" xml:space="preserve">
+    <value>Максимальное отклонение коэффициента трансформации основного ответвления, %</value>
+  </data>
+  <data name="RatioDeviationMainMinimum" xml:space="preserve">
+    <value>Минимальное отклонение коэффициента трансформации основного ответвления, %</value>
+  </data>
+  <data name="RatioDeviationMinorMaximum" xml:space="preserve">
+    <value>Максимальное отклонение коэффициента трансформации неосновного ответвления, %</value>
+  </data>
+  <data name="RatioDeviationMinorMinimum" xml:space="preserve">
+    <value>Минимальное отклонение коэффициента трансформации неосновного ответвления, %</value>
+  </data>
+  <data name="ShortCircuitVoltageDeviationMaximum" xml:space="preserve">
+    <value>Максимальное отклонение напряжения короткого замыкания основного ответвления, %</value>
+  </data>
+  <data name="ShortCircuitVoltageDeviationMinimum" xml:space="preserve">
+    <value>Минимальное отклонение напряжения короткого замыкания основного ответвления, %</value>
+  </data>
+  <data name="ShortCircuitVoltageNominal" xml:space="preserve">
+    <value>Напряжение короткого замыкания, %</value>
+  </data>
+  <data name="StepNumber" xml:space="preserve">
+    <value>Число ступеней</value>
+  </data>
+  <data name="StepNumber4" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="StepNumber8" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="StepVoltage" xml:space="preserve">
+    <value>Напряжение ступени, %</value>
+  </data>
+  <data name="StepVoltage25" xml:space="preserve">
+    <value>2.5</value>
+  </data>
+  <data name="StructuralElementsExcessTemperature" xml:space="preserve">
+    <value>Превышение температуры элементов конструкции, С</value>
+  </data>
+  <data name="SystemMagneticExcessTemperature" xml:space="preserve">
+    <value>Превышение температуры системы магнитной, С</value>
+  </data>
+  <data name="TestIKPNHighVoltage" xml:space="preserve">
+    <value>Испытательное напряжение внутренней изоляции ИКПН ВН, В</value>
+  </data>
+  <data name="TestIKPNLowVoltage" xml:space="preserve">
+    <value>Испытательное напряжение внутренней изоляции ИКПН НН, В</value>
+  </data>
+  <data name="TestLI1ExHighVoltage" xml:space="preserve">
+    <value>Испытательное напряжение внешней изоляции ПГИ ВН, В</value>
+  </data>
+  <data name="TestLI1ExLowVoltage" xml:space="preserve">
+    <value>Испытательное напряжение внешней изоляции ПГИ НН, В</value>
+  </data>
+  <data name="TestLI1HighVoltage" xml:space="preserve">
+    <value>Испытательное напряжение внутренней изоляции ПГИ ВН, В</value>
+  </data>
+  <data name="TestLI1LowVoltage" xml:space="preserve">
+    <value>Испытательное напряжение внутренней изоляции ПГИ НН, В</value>
+  </data>
+  <data name="TestLI3HighVoltage" xml:space="preserve">
+    <value>Испытательное напряжение внутренней изоляции ГИМВ ВН, В</value>
+  </data>
+  <data name="TestLI3LowVoltage" xml:space="preserve">
+    <value>Испытательное напряжение внутренней изоляции ГИМВ НН, В</value>
+  </data>
+  <data name="TestPKPNExHighVoltage" xml:space="preserve">
+    <value>Испытательное напряжение внешней изоляции ПКПН ВН, В</value>
+  </data>
+  <data name="TestPKPNExLowVoltage" xml:space="preserve">
+    <value>Испытательное напряжение внешней изоляции ПКПН НН, В</value>
+  </data>
+  <data name="TestPKPNHighVoltage" xml:space="preserve">
+    <value>Испытательное напряжение внутренней изоляции ПКПН ВН, В</value>
+  </data>
+  <data name="TestPKPNLowVoltage" xml:space="preserve">
+    <value>Испытательное напряжение внутренней изоляции ПКПН НН, В</value>
+  </data>
+  <data name="TestSI1HighVoltage" xml:space="preserve">
+    <value>Испытательное напряжение внутренней изоляции СГИ ВН, В</value>
+  </data>
+  <data name="TestSI1LowVoltage" xml:space="preserve">
+    <value>Испытательное напряжение внутренней изоляции СГИ НН, В</value>
+  </data>
+  <data name="TotalLossesDeviationMaximum" xml:space="preserve">
+    <value>Максимальное отклонение потерь суммарных, %</value>
+  </data>
+  <data name="TotalLossesDeviationMinimum" xml:space="preserve">
+    <value>Минимальное отклонение потерь суммарных, %</value>
+  </data>
+  <data name="TotalLossesNominal" xml:space="preserve">
+    <value>Потери суммарные, Вт</value>
+  </data>
+  <data name="UpperOperatingTemperature" xml:space="preserve">
+    <value>Верхнее рабочее значение температуры воздуха, С</value>
+  </data>
+  <data name="VoltageClass1000" xml:space="preserve">
+    <value>1000</value>
+  </data>
+  <data name="VoltageClass10000" xml:space="preserve">
+    <value>10000</value>
+  </data>
+  <data name="VoltageClass15000" xml:space="preserve">
+    <value>15000</value>
+  </data>
+  <data name="VoltageClass20000" xml:space="preserve">
+    <value>20000</value>
+  </data>
+  <data name="VoltageClass24000" xml:space="preserve">
+    <value>24000</value>
+  </data>
+  <data name="VoltageClass27000" xml:space="preserve">
+    <value>27000</value>
+  </data>
+  <data name="VoltageClass3000" xml:space="preserve">
+    <value>3000</value>
+  </data>
+  <data name="VoltageClass35000" xml:space="preserve">
+    <value>35000</value>
+  </data>
+  <data name="VoltageClass6000" xml:space="preserve">
+    <value>6000</value>
+  </data>
+  <data name="VoltageClassHighVoltage" xml:space="preserve">
+    <value>Класс напряжения ВН, В</value>
+  </data>
+  <data name="VoltageClassLowVoltage" xml:space="preserve">
+    <value>Класс напряжения НН, В</value>
+  </data>
+  <data name="VoltageLinearNominalHighVoltage" xml:space="preserve">
+    <value>Номинальное линейное напряжение ВН, В</value>
+  </data>
+  <data name="VoltageLinearNominalLowVoltage" xml:space="preserve">
+    <value>Номинальное линейное напряжение НН, В</value>
+  </data>
+  <data name="WindingHighVoltageExcessTemperature" xml:space="preserve">
+    <value>Превышение средней температуры обмотки ВН, С</value>
+  </data>
+  <data name="WindingLowVoltageExcessTemperature" xml:space="preserve">
+    <value>Превышение средней температуры обмотки НН, С</value>
+  </data>
+  <data name="ConnectionTypeLowVoltageD" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="ConnectionTypeLowVoltageY" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="ConnectionTypeLowVoltageYn" xml:space="preserve">
+    <value>Yн</value>
+  </data>
+</root>

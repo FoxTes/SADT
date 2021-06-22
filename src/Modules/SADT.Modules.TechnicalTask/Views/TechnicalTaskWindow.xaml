@@ -1,0 +1,2175 @@
+﻿<UserControl x:Class="SADT.Modules.TechnicalTask.Views.TechnicalTaskWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             
+             xmlns:res="clr-namespace:SADT.Modules.TechnicalTask.Properties"
+             xmlns:enumExtension="clr-namespace:SADT.Modules.TechnicalTask.EnumExtension"
+             xmlns:enums="clr-namespace:SADT.Modules.TechnicalTask.Enums"
+             
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+<!--Background="{DynamicResource SystemControlPageBackgroundChromeLowBrush}"-->
+
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical">
+            <TextBlock
+                Margin="16,0,0,4"
+                
+                Text="Техническое задание" />           
+                <!--Style="{DynamicResource TitleTextBlockStyle}"-->
+            <!--<Separator Background="{DynamicResource SystemControlBackgroundBaseMediumLowBrush}" />-->
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1" Margin="0,16,0,0">
+            <StackPanel>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.TransformerPower}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsTransformerPower}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.TransformerPower, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsTransformerPower, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.PhaseNumber}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsPhaseNumber}" />
+
+                    <ComboBox
+                        Grid.Column="2"
+                        MinWidth="176"
+                        Margin="16,0,0,0"
+                        VerticalAlignment="Center"
+                        ItemsSource="{Binding Source={enumExtension:EnumBindingSource {x:Type enums:PhaseNumber}}}"
+                        SelectedItem="{Binding TechnicalTaskBinding.PhaseNumber}">
+                        <ComboBox.Style>
+                            <Style BasedOn="{StaticResource DefaultComboBoxStyle}" TargetType="{x:Type ComboBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsPhaseNumber, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ComboBox.Style>
+                    </ComboBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.Frequency}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsFrequency}" />
+
+                    <ComboBox
+                        Grid.Column="2"
+                        MinWidth="176"
+                        Margin="16,0,0,0"
+                        VerticalAlignment="Center"
+                        ItemsSource="{Binding Source={enumExtension:EnumBindingSource {x:Type enums:Frequency}}}"
+                        SelectedItem="{Binding TechnicalTaskBinding.Frequency}">
+                        <ComboBox.Style>
+                            <Style BasedOn="{StaticResource DefaultComboBoxStyle}" TargetType="{x:Type ComboBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsFrequency, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ComboBox.Style>
+                    </ComboBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.VoltageLinearNominalHighVoltage}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsVoltageLinearNominalHighVoltage}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.VoltageLinearNominalHighVoltage, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsVoltageLinearNominalHighVoltage, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.VoltageLinearNominalLowVoltage}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsVoltageLinearNominalLowVoltage}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.VoltageLinearNominalLowVoltage, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsVoltageLinearNominalLowVoltage, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.VoltageClassHighVoltage}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsVoltageClassHighVoltage}" />
+
+                    <ComboBox
+                        Grid.Column="2"
+                        MinWidth="176"
+                        Margin="16,0,0,0"
+                        VerticalAlignment="Center"
+                        ItemsSource="{Binding Source={enumExtension:EnumBindingSource {x:Type enums:VoltageClass}}}"
+                        SelectedItem="{Binding TechnicalTaskBinding.VoltageClassHighVoltage}">
+                        <ComboBox.Style>
+                            <Style BasedOn="{StaticResource DefaultComboBoxStyle}" TargetType="{x:Type ComboBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsVoltageClassHighVoltage, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ComboBox.Style>
+                    </ComboBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.VoltageClassLowVoltage}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsVoltageClassLowVoltage}" />
+
+                    <ComboBox
+                        Grid.Column="2"
+                        MinWidth="176"
+                        Margin="16,0,0,0"
+                        VerticalAlignment="Center"
+                        ItemsSource="{Binding Source={enumExtension:EnumBindingSource {x:Type enums:VoltageClass}}}"
+                        SelectedItem="{Binding TechnicalTaskBinding.VoltageClassLowVoltage}">
+                        <ComboBox.Style>
+                            <Style BasedOn="{StaticResource DefaultComboBoxStyle}" TargetType="{x:Type ComboBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsVoltageClassLowVoltage, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ComboBox.Style>
+                    </ComboBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.ConnectionTypeHighVoltage}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsConnectionTypeHighVoltage}" />
+
+                    <ComboBox
+                        Grid.Column="2"
+                        MinWidth="176"
+                        Margin="16,0,0,0"
+                        VerticalAlignment="Center"
+                        ItemsSource="{Binding Source={enumExtension:EnumBindingSource {x:Type enums:ConnectionTypeHighVoltage}}}"
+                        SelectedItem="{Binding TechnicalTaskBinding.ConnectionTypeHighVoltage}">
+                        <ComboBox.Style>
+                            <Style BasedOn="{StaticResource DefaultComboBoxStyle}" TargetType="{x:Type ComboBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsConnectionTypeHighVoltage, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ComboBox.Style>
+                    </ComboBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.ConnectionTypeLowVoltage}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsConnectionTypeLowVoltage}" />
+
+                    <ComboBox
+                        Grid.Column="2"
+                        MinWidth="176"
+                        Margin="16,0,0,0"
+                        VerticalAlignment="Center"
+                        ItemsSource="{Binding Source={enumExtension:EnumBindingSource {x:Type enums:ConnectionTypeLowVoltage}}}"
+                        SelectedItem="{Binding TechnicalTaskBinding.ConnectionTypeLowVoltage}">
+                        <ComboBox.Style>
+                            <Style BasedOn="{StaticResource DefaultComboBoxStyle}" TargetType="{x:Type ComboBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsConnectionTypeLowVoltage, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ComboBox.Style>
+                    </ComboBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.GroupType}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsGroupType}" />
+
+                    <ComboBox
+                        Grid.Column="2"
+                        MinWidth="176"
+                        Margin="16,0,0,0"
+                        VerticalAlignment="Center"
+                        ItemsSource="{Binding Source={enumExtension:EnumBindingSource {x:Type enums:GroupType}}}"
+                        SelectedItem="{Binding TechnicalTaskBinding.GroupType}">
+                        <ComboBox.Style>
+                            <Style BasedOn="{StaticResource DefaultComboBoxStyle}" TargetType="{x:Type ComboBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsGroupType, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ComboBox.Style>
+                    </ComboBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.ClimaticPerformance}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsClimaticPerformance}" />
+
+                    <ComboBox
+                        Grid.Column="2"
+                        MinWidth="176"
+                        Margin="16,0,0,0"
+                        VerticalAlignment="Center"
+                        ItemsSource="{Binding Source={enumExtension:EnumBindingSource {x:Type enums:ClimaticPerformance}}}"
+                        SelectedItem="{Binding TechnicalTaskBinding.ClimaticPerformance}">
+                        <ComboBox.Style>
+                            <Style BasedOn="{StaticResource DefaultComboBoxStyle}" TargetType="{x:Type ComboBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsClimaticPerformance, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ComboBox.Style>
+                    </ComboBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.CategoryAccommodation}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsCategoryAccommodation}" />
+
+                    <ComboBox
+                        Grid.Column="2"
+                        MinWidth="176"
+                        Margin="16,0,0,0"
+                        VerticalAlignment="Center"
+                        ItemsSource="{Binding Source={enumExtension:EnumBindingSource {x:Type enums:CategoryAccommodation}}}"
+                        SelectedItem="{Binding TechnicalTaskBinding.CategoryAccommodation}">
+                        <ComboBox.Style>
+                            <Style BasedOn="{StaticResource DefaultComboBoxStyle}" TargetType="{x:Type ComboBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsCategoryAccommodation, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ComboBox.Style>
+                    </ComboBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.UpperOperatingTemperature}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsUpperOperatingTemperature}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.UpperOperatingTemperature, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsUpperOperatingTemperature, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.LowerOperatingTemperature}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsLowerOperatingTemperature}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.LowerOperatingTemperature, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsLowerOperatingTemperature, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.StepNumber}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsStepNumber}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.StepNumber, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsStepNumber, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.StepVoltage}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsStepVoltage}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.StepVoltage, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsStepVoltage, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.LoadMode}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsLoadMode}" />
+
+                    <ComboBox
+                        Grid.Column="2"
+                        MinWidth="176"
+                        Margin="16,0,0,0"
+                        VerticalAlignment="Center"
+                        ItemsSource="{Binding Source={enumExtension:EnumBindingSource {x:Type enums:LoadMode}}}"
+                        SelectedItem="{Binding TechnicalTaskBinding.LoadMode}">
+                        <ComboBox.Style>
+                            <Style BasedOn="{StaticResource DefaultComboBoxStyle}" TargetType="{x:Type ComboBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsLoadMode, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ComboBox.Style>
+                    </ComboBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.CoolingMethod}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsCoolingMethod}" />
+
+                    <ComboBox
+                        Grid.Column="2"
+                        MinWidth="176"
+                        Margin="16,0,0,0"
+                        VerticalAlignment="Center"
+                        ItemsSource="{Binding Source={enumExtension:EnumBindingSource {x:Type enums:CoolingMethod}}}"
+                        SelectedItem="{Binding TechnicalTaskBinding.CoolingMethod}">
+                        <ComboBox.Style>
+                            <Style BasedOn="{StaticResource DefaultComboBoxStyle}" TargetType="{x:Type ComboBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsCoolingMethod, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ComboBox.Style>
+                    </ComboBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.EarthquakeIntensity}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsEarthquakeIntensity}" />
+
+                    <ComboBox
+                        Grid.Column="2"
+                        MinWidth="176"
+                        Margin="16,0,0,0"
+                        VerticalAlignment="Center"
+                        ItemsSource="{Binding Source={enumExtension:EnumBindingSource {x:Type enums:EarthquakeIntensity}}}"
+                        SelectedItem="{Binding TechnicalTaskBinding.EarthquakeIntensity}">
+                        <ComboBox.Style>
+                            <Style BasedOn="{StaticResource DefaultComboBoxStyle}" TargetType="{x:Type ComboBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsEarthquakeIntensity, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ComboBox.Style>
+                    </ComboBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.InstallationAltitude}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsInstallationAltitude}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.InstallationAltitude, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsInstallationAltitude, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.RatioDeviationMainMinimum}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsRatioDeviationMainMinimum}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.RatioDeviationMainMinimum, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsRatioDeviationMainMinimum, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.RatioDeviationMainMaximum}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsRatioDeviationMainMaximum}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.RatioDeviationMainMaximum, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsRatioDeviationMainMaximum, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.RatioDeviationMinorMinimum}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsRatioDeviationMinorMinimum}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.RatioDeviationMinorMinimum, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsRatioDeviationMinorMinimum, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.RatioDeviationMinorMaximum}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsRatioDeviationMinorMaximum}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.RatioDeviationMinorMaximum, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsRatioDeviationMinorMaximum, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.LoadLossesNominal}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsLoadLossesNominal}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.LoadLossesNominal, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsLoadLossesNominal, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.LoadLossesDeviationMinimum}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsLoadLossesDeviationMinimum}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.LoadLossesDeviationMinimum, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsLoadLossesDeviationMinimum, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.LoadLossesDeviationMaximum}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsLoadLossesDeviationMaximum}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.LoadLossesDeviationMaximum, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsLoadLossesDeviationMaximum, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.ShortCircuitVoltageNominal}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsShortCircuitVoltageNominal}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.ShortCircuitVoltageNominal, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsShortCircuitVoltageNominal, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.ShortCircuitVoltageDeviationMinimum}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsShortCircuitVoltageDeviationMinimum}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.ShortCircuitVoltageDeviationMinimum, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsShortCircuitVoltageDeviationMinimum, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.ShortCircuitVoltageDeviationMaximum}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsShortCircuitVoltageDeviationMaximum}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.ShortCircuitVoltageDeviationMaximum, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsShortCircuitVoltageDeviationMaximum, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.NoLoadLossesNominal}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsNoLoadLossesNominal}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.NoLoadLossesNominal, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsNoLoadLossesNominal, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.NoLoadLossesDeviationMinimum}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsNoLoadLossesDeviationMinimum}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.NoLoadLossesDeviationMinimum, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsNoLoadLossesDeviationMinimum, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.NoLoadLossesDeviationMaximum}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsNoLoadLossesDeviationMaximum}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.NoLoadLossesDeviationMaximum, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsNoLoadLossesDeviationMaximum, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.NoLoadCurrentNominal}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsNoLoadCurrentNominal}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.NoLoadCurrentNominal, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsNoLoadCurrentNominal, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.NoLoadCurrentDeviationMinimum}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsNoLoadCurrentDeviationMinimum}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.NoLoadCurrentDeviationMinimum, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsNoLoadCurrentDeviationMinimum, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.NoLoadCurrentDeviationMaximum}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsNoLoadCurrentDeviationMaximum}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.NoLoadCurrentDeviationMaximum, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsNoLoadCurrentDeviationMaximum, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.TotalLossesNominal}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsTotalLossesNominal}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.TotalLossesNominal, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsTotalLossesNominal, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.TotalLossesDeviationMinimum}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsTotalLossesDeviationMinimum}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.TotalLossesDeviationMinimum, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsTotalLossesDeviationMinimum, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.TotalLossesDeviationMaximum}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsTotalLossesDeviationMaximum}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.TotalLossesDeviationMaximum, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsTotalLossesDeviationMaximum, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.OilUpperLayersExcessTemperature}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsOilUpperLayersExcessTemperature}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.OilUpperLayersExcessTemperature, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsOilUpperLayersExcessTemperature, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.WindingHighVoltageExcessTemperature}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsWindingHighVoltageExcessTemperature}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.WindingHighVoltageExcessTemperature, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsWindingHighVoltageExcessTemperature, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.WindingLowVoltageExcessTemperature}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsWindingLowVoltageExcessTemperature}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.WindingLowVoltageExcessTemperature, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsWindingLowVoltageExcessTemperature, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.SystemMagneticExcessTemperature}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsSystemMagneticExcessTemperature}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.SystemMagneticExcessTemperature, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsSystemMagneticExcessTemperature, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.StructuralElementsExcessTemperature}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsStructuralElementsExcessTemperature}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.StructuralElementsExcessTemperature, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsStructuralElementsExcessTemperature, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.InsulationMode}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsInsulationMode}" />
+
+                    <ComboBox
+                        Grid.Column="2"
+                        MinWidth="176"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        ItemsSource="{Binding Source={enumExtension:EnumBindingSource {x:Type enums:InsulationMode}}}"
+                        SelectedItem="{Binding TechnicalTaskBinding.InsulationMode}">
+                        <ComboBox.Style>
+                            <Style BasedOn="{StaticResource DefaultComboBoxStyle}" TargetType="{x:Type ComboBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsInsulationMode, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ComboBox.Style>
+                    </ComboBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.InternalInsulation}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsInternalInsulation}" />
+
+                    <ComboBox
+                        Grid.Column="2"
+                        MinWidth="176"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        ItemsSource="{Binding Source={enumExtension:EnumBindingSource {x:Type enums:InternalInsulation}}}"
+                        SelectedItem="{Binding TechnicalTaskBinding.InternalInsulation}">
+                        <ComboBox.Style>
+                            <Style BasedOn="{StaticResource DefaultComboBoxStyle}" TargetType="{x:Type ComboBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsInternalInsulation, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ComboBox.Style>
+                    </ComboBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.ExternalInsulation}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsExternalInsulation}" />
+
+                    <ComboBox
+                        Grid.Column="2"
+                        MinWidth="176"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        ItemsSource="{Binding Source={enumExtension:EnumBindingSource {x:Type enums:ExternalInsulation}}}"
+                        SelectedItem="{Binding TechnicalTaskBinding.ExternalInsulation}">
+                        <ComboBox.Style>
+                            <Style BasedOn="{StaticResource DefaultComboBoxStyle}" TargetType="{x:Type ComboBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsExternalInsulation, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ComboBox.Style>
+                    </ComboBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.TestPKPNHighVoltage}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsTestPKPNHighVoltage}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.TestPKPNHighVoltage, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsTestPKPNHighVoltage, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.TestPKPNLowVoltage}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsTestPKPNLowVoltage}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.TestPKPNLowVoltage, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsTestPKPNLowVoltage, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.TestIKPNHighVoltage}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsTestIKPNHighVoltage}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.TestIKPNHighVoltage, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsTestIKPNHighVoltage, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.TestIKPNLowVoltage}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsTestIKPNLowVoltage}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.TestIKPNLowVoltage, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsTestIKPNLowVoltage, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.TestLI1HighVoltage}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsTestLI1HighVoltage}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.TestLI1HighVoltage, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsTestLI1HighVoltage, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.TestLI1LowVoltage}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsTestLI1LowVoltage}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.TestLI1LowVoltage, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsTestLI1LowVoltage, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.TestLI3HighVoltage}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsTestLI3HighVoltage}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.TestLI3HighVoltage, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsTestLI3HighVoltage, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.TestLI3LowVoltage}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsTestLI3LowVoltage}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.TestLI3LowVoltage, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsTestLI3LowVoltage, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.TestSI1HighVoltage}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsTestSI1HighVoltage}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.TestSI1HighVoltage, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsTestSI1HighVoltage, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.TestSI1LowVoltage}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsTestSI1LowVoltage}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.TestSI1LowVoltage, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsTestSI1LowVoltage, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.TestPKPNExHighVoltage}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsTestPKPNExHighVoltage}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.TestPKPNExHighVoltage, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsTestPKPNExHighVoltage, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.TestPKPNExLowVoltage}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsTestPKPNExLowVoltage}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.TestPKPNExLowVoltage, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsTestPKPNExLowVoltage, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid
+                    Height="42"
+                    Margin="0,0,24,0"
+                    Background="{DynamicResource SystemControlPageBackgroundChromeMediumLowBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.TestLI1ExHighVoltage}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsTestLI1ExHighVoltage}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.TestLI1ExHighVoltage, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsTestLI1ExHighVoltage, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                </Grid>
+
+                <Grid Height="42" Margin="0,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="8,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{x:Static res:Resources.TestLI1ExLowVoltage}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWithOverflow" />
+
+                    <CheckBox Grid.Column="1" IsChecked="{Binding TechnicalTaskBinding.IsTestLI1ExLowVoltage}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        Margin="16,0,8,0"
+                        VerticalAlignment="Center"
+                        Text="{Binding TechnicalTaskBinding.TestLI1ExLowVoltage, FallbackValue='NaN'}">
+                        <TextBox.Style>
+                            <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding TechnicalTaskBinding.IsTestLI1ExLowVoltage, UpdateSourceTrigger=PropertyChanged}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                </Grid>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+    
+</UserControl>
